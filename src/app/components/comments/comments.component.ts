@@ -4,6 +4,7 @@ import {MatCardFooter} from "@angular/material/card";
 import {MatList, MatListItem} from "@angular/material/list";
 import {NgForOf, NgIf} from "@angular/common";
 import {MatBadge} from "@angular/material/badge";
+import {Comment} from "../models/comment";
 
 @Component({
   selector: 'app-comments',
@@ -23,7 +24,7 @@ import {MatBadge} from "@angular/material/badge";
 export class CommentsComponent {
 
   @Input()
-  comments!: any[];
+  comments!: Comment[];
   collapseComments: boolean = false;
 
   showComments() {

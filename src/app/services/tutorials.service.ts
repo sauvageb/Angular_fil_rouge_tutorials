@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {Tutorial} from "../components/models/tutorial";
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,8 @@ export class TutorialsService {
   constructor() {
   }
 
-  getAll(): any[] {
-    let tutorials: any[] = [
+  getAll(): Tutorial[] {
+    let tutorials: Tutorial[] = [
       {
         id: 1,
         title: "Afficher une liste avec Material Angular",

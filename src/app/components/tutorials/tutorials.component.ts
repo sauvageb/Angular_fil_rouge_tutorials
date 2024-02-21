@@ -21,6 +21,7 @@ import {MatBadge} from "@angular/material/badge";
 import {HoverHighlightDirective} from "../../directives/hover-highlight.directive";
 import {CommentsComponent} from "../comments/comments.component";
 import {TutorialsService} from "../../services/tutorials.service";
+import {Tutorial} from "../models/tutorial";
 
 @Component({
   selector: 'app-tutorials',
@@ -58,7 +59,7 @@ import {TutorialsService} from "../../services/tutorials.service";
 })
 export class TutorialsComponent implements OnInit {
 
-  tutorials!: any[];
+  tutorials!: Tutorial[];
   sortByDate: string = "DESC";
 
   constructor(private tutorialService: TutorialsService) {

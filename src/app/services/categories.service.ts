@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {Category} from '../components/models/category';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class CategoriesService {
   constructor() {
   }
 
-  getAll(): any[] {
+  getAll(): Category[] {
     const categories = [
       {id: 1, name: "Java"},
       {id: 2, name: "Javascript"},

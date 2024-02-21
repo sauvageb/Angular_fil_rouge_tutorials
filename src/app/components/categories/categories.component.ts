@@ -3,6 +3,7 @@ import {NgForOf} from "@angular/common";
 import {MatActionList, MatListItem} from "@angular/material/list";
 import {MatCard} from "@angular/material/card";
 import {CategoriesService} from "../../services/categories.service";
+import {Category} from '../models/category';
 
 @Component({
   selector: 'app-categories',
@@ -17,8 +18,7 @@ import {CategoriesService} from "../../services/categories.service";
   styleUrl: './categories.component.css'
 })
 export class CategoriesComponent implements OnInit {
-
-  categories!: any[];
+  categories!: Category[];
 
   constructor(private categoriesService: CategoriesService) {
   }
