@@ -1,1 +1,10 @@
-<p>categories works!</p>
+<div class="basic-container">
+  <h2>Liste des Catégories</h2>
+
+  <mat-card>
+    <mat-action-list *ngFor="let category of categories">
+      <button mat-list-item>{{category.name}}</button>
+    </mat-action-list>
+  </mat-card>
+
+</div>
