@@ -22,14 +22,6 @@ mat-chip {
   padding-right: 16px;
 }
 
-.tutorial-container.footer {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 30px;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
 .sort-header {
   display: flex;
   justify-content: space-between;

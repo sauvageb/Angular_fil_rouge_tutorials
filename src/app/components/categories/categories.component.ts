@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {NgForOf} from "@angular/common";
 import {MatActionList, MatListItem} from "@angular/material/list";
 import {MatCard} from "@angular/material/card";
-import {Category} from "../../models/category";
 
 @Component({
   selector: 'app-categories',
@@ -18,7 +17,7 @@ import {Category} from "../../models/category";
 })
 export class CategoriesComponent {
 
-  categories: Category[] = [
+  categories: any[] = [
     {id: 1, name: "Java"},
     {id: 2, name: "Javascript"},
     {id: 3, name: "Typescript"},

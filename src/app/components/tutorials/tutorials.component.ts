@@ -19,7 +19,7 @@ import {MatOption, MatSelect} from "@angular/material/select";
 import {SortTutorialByDatePipe} from "../../pipes/sort-tutorial-by-date.pipe";
 import {MatBadge} from "@angular/material/badge";
 import {HoverHighlightDirective} from "../../directives/hover-highlight.directive";
-import {Tutorial} from "../../models/tutorial";
+import {CommentsComponent} from "../comments/comments.component";
 
 @Component({
   selector: 'app-tutorials',
@@ -49,15 +49,15 @@ import {Tutorial} from "../../models/tutorial";
     MatOption,
     SortTutorialByDatePipe,
     MatBadge,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    CommentsComponent
   ],
   templateUrl: './tutorials.component.html',
   styleUrl: './tutorials.component.css'
 })
 export class TutorialsComponent implements OnInit {
 
-  tutorials!: Tutorial[];
-  collapseComments: boolean = false;
+  tutorials!: any[];
   sortByDate: string = "DESC";
 
   ngOnInit(): void {
@@ -110,12 +110,5 @@ export class TutorialsComponent implements OnInit {
         ]
       }
     ];
-  }
-
-
-  showComments(tuto: Tutorial) {
-    if (tuto.comments.length > 0) {
-      this.collapseComments = !this.collapseComments;
-    }
   }
 }
