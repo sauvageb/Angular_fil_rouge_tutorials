@@ -43,24 +43,9 @@
       </div>
     </mat-card-actions>
 
-    <mat-card-footer class="tutorial-container footer">
-      <div>
-        <button
-          (click)="showComments(tuto)" [disabled]="tuto.comments.length < 1"
-          mat-raised-button color="primary"
-          [matBadgeHidden]="tuto.comments.length < 1"
-          [matBadge]="tuto.comments.length" matBadgePosition="before" matBadgeColor="accent">
-          Commentaires
-        </button>
-      </div>
-
-      <div *ngIf="collapseComments">
-        <mat-list role="list">
-          <mat-list-item *ngFor="let c of tuto.comments">{{c.content}}</mat-list-item>
-        </mat-list>
-      </div>
-    </mat-card-footer>
+    <app-comments [comments]="tuto.comments"></app-comments>
   </mat-card>
+
 
 </ng-container>
 
