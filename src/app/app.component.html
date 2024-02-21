@@ -1,6 +1,10 @@
-<mat-toolbar color="primary">Tutorials App</mat-toolbar>
-<div class="main-content">
-  <app-categories></app-categories>
-  <app-tutorials></app-tutorials>
-</div>
+<mat-toolbar color="primary">
+  <span>Tutorials App</span>
+  <a mat-button routerLink="">Catégories</a>
+  <a mat-button routerLink="all">Tutoriels</a>
+  <a mat-button routerLink="tutorials/add">Ajouter Tutoriel</a>
+</mat-toolbar>
 
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>
