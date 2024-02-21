@@ -9,8 +9,8 @@
   </mat-form-field>
 </div>
 
-<ng-container class="tutorial-container" appHoverHighlight>
-  <mat-card *ngFor="let tuto of tutorials | sortTutorialByDate:sortByDate">
+<ng-container class="tutorial-container">
+  <mat-card *ngFor="let tuto of tutorials | sortTutorialByDate:sortByDate" appHoverHighlight>
     <mat-card-header>
       <mat-card-title>{{tuto.title}}</mat-card-title>
       <mat-card-subtitle>{{tuto.description}}</mat-card-subtitle>
