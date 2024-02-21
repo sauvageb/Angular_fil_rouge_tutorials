@@ -20,6 +20,7 @@ import {SortTutorialByDatePipe} from "../../pipes/sort-tutorial-by-date.pipe";
 import {MatBadge} from "@angular/material/badge";
 import {HoverHighlightDirective} from "../../directives/hover-highlight.directive";
 import {CommentsComponent} from "../comments/comments.component";
+import {Tutorial} from "../../models/tutorial";
 
 @Component({
   selector: 'app-tutorials',
@@ -57,7 +58,7 @@ import {CommentsComponent} from "../comments/comments.component";
 })
 export class TutorialsComponent implements OnInit {
 
-  tutorials!: any[];
+  tutorials!: Tutorial[];
   sortByDate: string = "DESC";
 
   ngOnInit(): void {
