@@ -1,1 +1,55 @@
-<p>add-tutorial works!</p>
+<div class="header">
+  <h2>Ajouter un tutoriel</h2>
+</div>
+
+<form [formGroup]="addFormTutorial" (ngSubmit)="onSubmit(addFormTutorial)">
+
+  <mat-card class="main-form">
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Titre</mat-label>
+        <input matInput formControlName="title">
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description">
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Choisir une catégorie</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let cat of categories$ | async" [value]="cat">{{cat.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Tutoriel</mat-label>
+        <textarea matInput formControlName="content"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Choisir une date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="createdAt">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <mat-card-actions>
+      <button mat-flat-button color="primary" type="submit">Ajouter</button>
+    </mat-card-actions>
+
+  </mat-card>
+</form>
+
+

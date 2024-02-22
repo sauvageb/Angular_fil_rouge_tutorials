@@ -15,4 +15,8 @@ export class TutorialsService {
   getAll(): Observable<Tutorial[]> {
     return this.http.get<Tutorial[]>(`${this.baseUrl}/tutorials`);
   }
+
+  createTutorial(newTutorial: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/tutorials/anonymous`, newTutorial);
+  }
 }

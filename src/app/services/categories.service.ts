@@ -9,8 +9,7 @@ import {BASE_API_URL} from "../constants/injection";
 })
 export class CategoriesService {
 
-  constructor(private http: HttpClient,
-              @Inject(BASE_API_URL) private baseUrl: string) {
+  constructor(private http: HttpClient, @Inject(BASE_API_URL) private baseUrl: string) {
   }
 
   getAll(): Observable<Category[]> {
