@@ -9,7 +9,7 @@
   </mat-form-field>
 </div>
 
-<ng-container class="tutorial-container" appHoverHighlight>
+<ng-container class="tutorial-container" *ngIf="tutorials$ | async as tutorials; else noTutorials" appHoverHighlight>
   <mat-card *ngFor="let tuto of tutorials | sortTutorialByDate:sortByDate">
     <mat-card-header>
       <mat-card-title>{{tuto.title}}</mat-card-title>
@@ -45,7 +45,11 @@
 
     <app-comments [comments]="tuto.comments"></app-comments>
   </mat-card>
-
-
 </ng-container>
+
+<ng-template #noTutorials>
+  <div class="spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
 

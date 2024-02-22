@@ -1,7 +1,9 @@
 import {Component} from '@angular/core';
-import {NgForOf} from "@angular/common";
+import {AsyncPipe, NgForOf} from "@angular/common";
 import {MatActionList, MatListItem} from "@angular/material/list";
 import {MatCard} from "@angular/material/card";
+import {CategoriesService} from "../../services/categories.service";
+import {Observable} from "rxjs";
 import {Category} from "../../models/category";
 
 @Component({
@@ -11,25 +13,18 @@ import {Category} from "../../models/category";
     NgForOf,
     MatActionList,
     MatCard,
-    MatListItem
+    MatListItem,
+    AsyncPipe
   ],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css'
 })
 export class CategoriesComponent {
 
-  categories: Category[] = [
-    {id: 1, name: "Java"},
-    {id: 2, name: "Javascript"},
-    {id: 3, name: "Typescript"},
-    {id: 4, name: "PHP"},
-    {id: 5, name: "C#"},
-    {id: 6, name: "Angular"},
-    {id: 7, name: "Ruby"},
-    {id: 8, name: "Python"},
-    {id: 9, name: "C++"},
-    {id: 10, name: "Rust"},
-    {id: 11, name: "VBA"},
-  ];
+  categories$: Observable<Category[]> = this.categoriesService.getAll();
+
+  constructor(private categoriesService: CategoriesService) {
+  }
+
 
 }
