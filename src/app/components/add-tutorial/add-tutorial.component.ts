@@ -50,15 +50,35 @@ import {MatOptionModule} from "@angular/material/core";
 })
 export class AddTutorialComponent {
 
+
+  dateInPast(): (control: AbstractControl) => Observable<{ [key: string]: boolean } | null> {
+    return (control: AbstractControl): Observable<{ [key: string]: boolean } | null> => {
+      return new Observable((observer) => {
+        const currentDate = new Date();
+        const selectedDate = new Date(control.value);
+
+        currentDate.setHours(0, 0, 0, 0);
+        selectedDate.setHours(0, 0, 0, 0);
+
+        if (selectedDate < currentDate) {
+          observer.next({dateInPast: true});
+        } else {
+          observer.next(null);
+        }
+        observer.complete();
+      });
+    };
+  }
+
   private subscription!: Subscription;
   categories$ = this.categoriesService.getAll();
 
   addFormTutorial = this.fb.group({
-    title: '',
-    description: '',
-    content: '',
-    createdAt: new Date(),
-    category: '',
+    title: ['', Validators.required],
+    description: ['', Validators.required],
+    content: ['', Validators.required],
+    createdAt: [new Date(), [Validators.required], [this.dateInPast()]],
+    category: ['', Validators.required],
   });
 
 
@@ -70,12 +90,12 @@ export class AddTutorialComponent {
   }
 
   onSubmit(data: FormGroup) {
-    let newTutorial = {
+    let newTutorial: any = {
       title: data.value.title,
       description: data.value.description,
       content: data.value.content,
-      category: data.value.category,
-      author: "sauvageboris.pro@tutorial.fr"
+      author: "sauvageboris.pro@tutorial.fr",
+      category: data.value.category
     };
 
     this.subscription = this.tutorialsService
